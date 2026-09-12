@@ -2,6 +2,24 @@
 {
     internal class Program
     {
+        #region Delivery address struct
+        public struct DeliveryAddress
+        {
+            public string city;
+            public string street;
+            public int BuildingNumber;
+            public DeliveryAddress(string city, string رstreet, int BuildingNumber)
+            {
+                this.city = city;
+                this.street = street;
+                this.BuildingNumber = BuildingNumber;
+            }
+            public string GetFullAddress()
+            {
+                return $"City: {city}, Street: {street}, Building Number: {BuildingNumber}";
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Theoretical questions
