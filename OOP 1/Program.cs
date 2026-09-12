@@ -105,6 +105,13 @@
             }
         }
         #endregion
+
+        #region Delivery center struct
+        public struct DeliveryCenter
+        {
+            // will implement the next session
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Theoretical questions
