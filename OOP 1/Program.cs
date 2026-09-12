@@ -112,6 +112,8 @@
             // will implement the next session
         }
         #endregion
+
+
         static void Main(string[] args)
         {
             #region Theoretical questions
@@ -141,6 +143,51 @@
             // 2. Add properties to access private feilds.
             // 3. Add validation to properties to ensure that data is valid.
             #endregion
+
+            #region Entering shipments
+            DeliveryCenter center = new DeliveryCenter();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Enter Shipment {i + 1} Data");
+
+                Console.Write("Enter tracking code: ");
+                string trackingCode = Console.ReadLine();
+
+                Console.Write("Enter description: ");
+                string description = Console.ReadLine();
+
+                Console.Write("Enter weight: ");
+                double weight = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter delivery fee: ");
+                double deliveryFee = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter city: ");
+                string city = Console.ReadLine();
+
+                Console.Write("Enter street: ");
+                string street = Console.ReadLine();
+
+                Console.Write("Enter building Number: ");
+                int buldingNum = int.Parse(Console.ReadLine());
+
+                DeliveryAddress address = new DeliveryAddress(city, street, buldingNum);
+
+                Shipment shipment = new Shipment(trackingCode, description, weight, deliveryFee, address);
+
+                DeliveryAddress address1 = new DeliveryAddress("Maadi", "Road 9", 12);
+                DeliveryAddress copiedAdd = address1;
+
+                Console.WriteLine($"Original Address: {address1.GetFullAddress()}");
+                Console.WriteLine($"Copied Address: {copiedAdd.GetFullAddress()}");
+
+                copiedAdd = new DeliveryAddress("Heliopolis", "El Hegaz Street", 25);
+
+                Console.WriteLine($"Original Address after change: {address1.GetFullAddress()}");
+                Console.WriteLine($"Copied Address after change: {copiedAdd.GetFullAddress()}");
+            #endregion
+            }
         }
     }
 }
