@@ -1,4 +1,6 @@
-﻿namespace OOP_1
+﻿using static OOP_1.Program;
+
+namespace OOP_1
 {
     internal class Program
     {
@@ -92,7 +94,7 @@
             public void UpdateDeliveryFee(double newFee)
             {
                 if (newFee > 0)
-                    DeliveryFee = newFee;
+                    _deliveryFee = newFee;
             }
             public void PrintShipment()
             {
@@ -106,10 +108,32 @@
         }
         #endregion
 
-        #region Delivery center struct
-        public struct DeliveryCenter
+        #region Delivery center class
+
+        public class DeliveryCenter
         {
-            // will implement the next session
+            private Shipment[] shipments;
+            public DeliveryCenter()
+            {
+                shipments = new Shipment[10];
+            }
+
+            public Shipment this[int index]
+            {
+                get
+                {
+                    if (index >= 0 && index < shipments.Length)
+                        return shipments[index];
+
+                    return default;
+                }
+                set
+                {
+                    if (index >= 0 && index < shipments.Length)
+                        shipments[index] = value;
+                }
+            }
+
         }
         #endregion
 
